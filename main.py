@@ -11,12 +11,17 @@ screen.title("Snake Game")
 
 snake = Snake()
 
-game_is_on = True
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
 
+# Main game loop
+game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(0.1)     # Refresh screen every 0.1 seconds
-
     snake.move()
 
 

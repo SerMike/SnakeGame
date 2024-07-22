@@ -3,11 +3,17 @@ from turtle import Turtle
 # Coordinates for initial snake
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
+        self.head = self.segments[0]
+        self.current_heading = RIGHT
 
     def create_snake(self):
         # Create initial snake length and start position
@@ -25,3 +31,19 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
         self.segments[0].forward(MOVE_DISTANCE)
+
+    def up(self):
+        self.head.setheading(UP)
+        self.current_heading = UP
+
+    def down(self):
+        self.head.setheading(DOWN)
+        self.current_heading = DOWN
+
+    def left(self):
+        self.head.setheading(LEFT)
+        self.current_heading = LEFT
+
+    def right(self):
+        self.head.setheading(RIGHT)
+        self.current_heading = RIGHT
