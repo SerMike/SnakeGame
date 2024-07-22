@@ -48,7 +48,7 @@ while game_is_on:
             scoreboard.game_over()
 
     # Winning Score
-    if scoreboard.score >= 10:
+    if scoreboard.score >= 100:
         game_is_on = False
         scoreboard.winning()
 
