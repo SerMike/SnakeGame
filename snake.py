@@ -12,11 +12,11 @@ class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
-        self.head = self.segments[0]
-        self.current_heading = RIGHT
+        self.head = self.segments[0]    # Keep track of the head of the snake
+        # self.current_heading = RIGHT
 
     def create_snake(self):
-        # Create initial snake length and start position
+        # Create initial snake segments
         for position in STARTING_POSITIONS:
             new_segment = Turtle(shape="square")
             new_segment.color("white")
@@ -25,7 +25,7 @@ class Snake:
             self.segments.append(new_segment)
 
     def move(self):
-        # Link snake segments
+        # Head of snake moves forward, and rest of segments follow head's previous positions
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
@@ -33,17 +33,17 @@ class Snake:
         self.segments[0].forward(MOVE_DISTANCE)
 
     def up(self):
-        self.head.setheading(UP)
-        self.current_heading = UP
+        if self.head.heading() != DOWN:  # Prevent snake from turning around on itself
+            self.head.setheading(UP)
 
     def down(self):
-        self.head.setheading(DOWN)
-        self.current_heading = DOWN
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     def left(self):
-        self.head.setheading(LEFT)
-        self.current_heading = LEFT
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
 
     def right(self):
-        self.head.setheading(RIGHT)
-        self.current_heading = RIGHT
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
