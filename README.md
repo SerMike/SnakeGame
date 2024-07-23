@@ -52,17 +52,6 @@ python main.py
 - `food.py`: Manages the food spawning and positioning
 - `scoreboard.py`: Handles scoring and displays game messages
 
-## Future Improvements
-
-- Add difficulty levels
-- Implement obstacles
-- Create a high score system
-- Add sound effects
-- Improve graphics with custom sprites
-
-## Contributing
-
-Contributions to improve the game are welcome. Please feel free to fork the repository, make changes, and submit a pull request.
 
 ## License
 
