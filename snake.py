@@ -13,7 +13,6 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]    # Keep track of the head of the snake
-        # self.current_heading = RIGHT
 
     def create_snake(self):
         # Create initial snake segments
@@ -29,6 +28,13 @@ class Snake:
 
     def extend(self):
         self.add_segment(self.segments[-1].position())
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)        # Move dead snakes off-screen
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
 
     def move(self):
         # Head of snake moves forward, and rest of segments follow head's previous positions
